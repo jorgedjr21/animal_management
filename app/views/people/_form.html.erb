@@ -5,6 +5,7 @@
     <%= f.input :birthdate, as: :string, hint: 'formato: dia/mês/ano', input_html: { class: 'date', value: @person.birthdate&.strftime('%d/%m/%Y') } %>
   </div>
   <div class="card-footer text-center">
+    <%= link_to t('actions.back'), people_path, class: 'mr-2 btn btn-outline-info' %>
     <%= f.submit t('actions.save'), class: 'btn btn-secondary' %>
   </div>
 <% end %>

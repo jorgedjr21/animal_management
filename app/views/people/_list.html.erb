@@ -14,7 +14,7 @@
       <td><%= person.document %></td>
       <td><%= person.birthdate&.strftime('%d/%m/%Y') %></td>
       <td class='text-center'>
-        <a href="<%= edit_person_path(person) %>" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class='fas fa-edit text-secondary'></i></a>
+        <a href="<%= edit_person_path(person) %>" id="edit_person" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class='fas fa-edit text-secondary'></i></a>
       </td>
       <td class='text-center'>
         <%= link_to "<i class='fas fa-user-times text-danger'></i>".html_safe, person_path(person), method: :delete, data: { confirm: t('messages.delete.person'), toggle: 'tooltip', title: 'Excluir', placement: 'bottom' } %>

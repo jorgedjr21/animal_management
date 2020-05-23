@@ -58,9 +58,15 @@ br:
       - :month
       - :year
   actions:
-    new:
-      person: 'Adicionar pessoa'
+    save: 'Salvar'
+    back: 'Voltar'
+    person: 
+      new: 'Adicionar pessoa'
+      edit: 'Editar Pessoa'
   messages:
     hello: 'Bem vindo ao Gerenciador de Animais'
     success: 'Operação realizada com sucesso!'
     error: 'Não foi possível concluir a operação, por favor, cheque os erros'
+    not_found: 'Não foi possivel encontrar a informação.'
+    delete:
+      person: 'Deseja realmente excluir essa pessoa? (Os animais a ela pertencente também serão excluidos!)'

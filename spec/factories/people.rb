@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :person do
     name { 'MyString' }
-    document { 555_666_555 }
+    document { 555_555_555 }
     birthdate { '2020-05-22' }
 
     trait :wrong_name do
