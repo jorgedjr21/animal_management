@@ -10,12 +10,20 @@ RSpec.describe Animal, type: :model do
 
   context 'custom validations' do
     let(:person) { create(:person, :underage) }
+    let(:person_with_a) { create(:person, name: 'Alexander, the Greate') }
     let(:animal_kind) { create(:animal_kind, name: 'Andorinha') }
-    let(:animal) { build(:animal, owner: person, animal_kind: animal_kind)}
+    let(:animal_kind_cat) { create(:animal_kind, name: 'Gato') }
+    let(:animal) { build(:animal, owner: person, animal_kind: animal_kind) }
+    let(:animal_cat) { build(:animal, owner: person_with_a, animal_kind: animal_kind_cat) }
 
-    it 'is expected to validate animal owner' do
+    it 'is expected to validate animal owner age' do
       animal.validate
       expect(animal.invalid?).to be_truthy
+    end
+
+    it 'is expected to validate animal owner name' do
+      animal_cat.validate
+      expect(animal_cat.invalid?).to be_truthy
     end
   end
 end

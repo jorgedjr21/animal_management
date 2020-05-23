@@ -72,6 +72,17 @@ RSpec.describe 'Animals Requests', type: :request do
             expect { post "/people/#{underage_person.id}/animals", params: valid_params }.not_to change(Animal, :count)
           end
         end
+
+        context 'when person name starts with \'a\'' do
+          let!(:person_name_a) { create(:person, name: 'Alexander, the Great', birthdate: Date.today - 10.years) }
+          let(:cat) { create(:animal_kind, name: 'Gato') }
+          
+          it 'must not add the \'Cat\' animal' do
+            valid_params[:animal][:animal_kind_id] = cat.id
+
+            expect { post "/people/#{person_name_a.id}/animals", params: valid_params }.not_to change(Animal, :count)
+          end
+        end
       end
 
       context 'with invalid params' do
