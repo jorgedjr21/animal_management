@@ -36,6 +36,8 @@ class PeopleController < ApplicationController
   end
 
   def destroy
+    @person.destroy
+    redirect_to people_path, flash: { notice: t('messages.success') }
   end
 
   private
