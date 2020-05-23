@@ -25,5 +25,12 @@ RSpec.describe Animal, type: :model do
       animal_cat.validate
       expect(animal_cat.invalid?).to be_truthy
     end
+
+    it 'is expected to validate the owner costs' do
+      create(:animal, monthly_cost: 1001.00, owner: person)
+      new_animal = build(:animal, monthly_cost: 10.00, owner: person)
+      
+      expect(new_animal.invalid?).to be_truthy
+    end
   end
 end

@@ -66,6 +66,7 @@ br:
             monthly_cost:
               blank: 'não pode ficar em branco'
               not_a_number: 'deve conter um número no formato 0.00'
+              owner_costs: ' de %{name} já são elevados, não é possivel adicionar um novo animal'
             animal_kind_id:
               blank: 'não pode ficar em branco'
               underage: ' %{kind} só pode ter donos acima de 18 anos'
@@ -90,5 +91,6 @@ br:
     success: 'Operação realizada com sucesso!'
     error: 'Não foi possível concluir a operação, por favor, cheque os erros'
     not_found: 'Não foi possivel encontrar informações para prosseguir.'
+    list_not_found: 'Nenhum cadastro de %{kind} foi encontrado'
     delete:
       person: 'Deseja realmente excluir essa pessoa? (Os animais a ela pertencente também serão excluidos!)'

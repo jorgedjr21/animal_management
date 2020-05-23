@@ -7,6 +7,7 @@ class Animal < ApplicationRecord
   validates :animal_kind_id, presence: :true
   validate :owner_age_for_andorinhas
   validate :owner_name_for_cat
+  validate :owner_costs
 
   def owner_age_for_andorinhas
     age = (Date.today - owner.birthdate).to_i / 365
@@ -15,5 +16,10 @@ class Animal < ApplicationRecord
 
   def owner_name_for_cat
     errors.add('animal_kind_id', I18n.t('activerecord.errors.models.animal.attributes.animal_kind_id.owner_name', kind: animal_kind.name)) if animal_kind.name == 'Gato' && owner.name.downcase.starts_with?('a')
+  end
+
+  def owner_costs
+    costs = owner.animals.pluck(:monthly_cost).reduce(&:+).to_f 
+    errors.add('monthly_cost', I18n.t('activerecord.errors.models.animal.attributes.monthly_cost.owner_costs', name: owner.name)) if costs > 1000.00
   end
 end

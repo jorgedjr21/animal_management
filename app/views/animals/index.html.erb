@@ -9,7 +9,11 @@
         <h3><%= Animal.model_name.human(count: 2) %>: <%= @person.animals.count %> <a href="<%= new_person_animal_path(@person) %>" class='btn btn-secondary float-right'><%= t('actions.animal.new') %></a></h3>
       </div>
       <div class="card-body">
-     
+        <% if @person.animals.count > 0 %>
+          <%= render 'list' %>
+        <% else %>
+          <p class="text-warning text-center"><%= t('messages.list_not_found', kind: Animal.model_name.human) %></p>
+        <% end %>
       </div>
     </div>
   </div>

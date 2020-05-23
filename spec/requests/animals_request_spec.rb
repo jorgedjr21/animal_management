@@ -83,6 +83,19 @@ RSpec.describe 'Animals Requests', type: :request do
             expect { post "/people/#{person_name_a.id}/animals", params: valid_params }.not_to change(Animal, :count)
           end
         end
+
+        context 'when person has more than 1000 in costs' do
+          let!(:person_high_costs ) { create(:person) }
+          let!(:animals) do
+            (1..2).each do |n|
+              create(:animal, monthly_cost: 500.10, owner: person_high_costs )
+            end
+          end
+
+          it 'must not add the new animal' do
+            expect { post "/people/#{person_high_costs.id}/animals", params: valid_params }.not_to change(Animal, :count)
+          end
+        end
       end
 
       context 'with invalid params' do

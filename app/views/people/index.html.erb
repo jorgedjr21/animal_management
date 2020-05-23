@@ -12,7 +12,7 @@
         <% if @people.count > 0 %>
           <%= render 'list' %>
         <% else %>
-          <p class="text-warning"><%= t('messages.not_found') %></p>
+          <p class="text-warning text-center"><%= t('messages.list_not_found', kind: Person.model_name.human) %></p>
         <% end %>
       </div>
     </div>
