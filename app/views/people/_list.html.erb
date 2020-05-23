@@ -1,0 +1,28 @@
+<table class='table table-striped table-hover table-bordered'>
+  <thead>
+    <tr class='bg-info text-light'>
+      <% table_header_keys(@people.first).each do |header| %>
+        <th><%= Person.human_attribute_name(header) %></th>
+      <% end %>
+      <th colspan='3'>
+    </tr>
+  </thead>
+  <tbody>
+    <% @people.each do |person| %>
+    <tr>
+      <td><%= person.name %></td>
+      <td><%= person.document %></td>
+      <td><%= person.birthdate&.strftime('%d/%m/%Y') %></td>
+      <td class='text-center'>
+        <a href="<%= edit_person_path(person) %>" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class='fas fa-edit text-secondary'></i></a>
+      </td>
+      <td class='text-center'>
+        <%= link_to "<i class='fas fa-user-times text-danger'></i>".html_safe, person_path(person), method: :delete, data: { confirm: t('messages.delete.person'), toggle: 'tooltip', title: 'Excluir', placement: 'bottom' } %>
+      </td>
+      <td class='text-center'>
+        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Animais"><i class='fas fa-paw text-warning'></i></a>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

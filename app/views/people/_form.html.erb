@@ -1,0 +1,10 @@
+ <%= simple_form_for @person do |f| %>
+  <div class="card-body">
+    <%= f.input :name %>
+    <%= f.input :document, as: :string %>
+    <%= f.input :birthdate, as: :string, hint: 'formato: dia/mês/ano', input_html: { class: 'date', value: @person.birthdate&.strftime('%d/%m/%Y') } %>
+  </div>
+  <div class="card-footer text-center">
+    <%= f.submit t('actions.save'), class: 'btn btn-secondary' %>
+  </div>
+<% end %>
