@@ -36,6 +36,9 @@ br:
       person:
         one: 'Pessoa'
         other: 'Pessoas'
+      animal:
+        one: 'Animal'
+        other: 'Animais'
     attributes:
       person:
         name: 'Nome'
@@ -63,10 +66,13 @@ br:
     person: 
       new: 'Adicionar pessoa'
       edit: 'Editar Pessoa'
+    animal:
+      new: 'Adicionar animal'
   messages:
     hello: 'Bem vindo ao Gerenciador de Animais'
+    animals_page_title: 'Animais de %{name}'
     success: 'Operação realizada com sucesso!'
     error: 'Não foi possível concluir a operação, por favor, cheque os erros'
-    not_found: 'Não foi possivel encontrar a informação.'
+    not_found: 'Não foi possivel encontrar informações para prosseguir.'
     delete:
       person: 'Deseja realmente excluir essa pessoa? (Os animais a ela pertencente também serão excluidos!)'

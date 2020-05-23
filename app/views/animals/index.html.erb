@@ -1,0 +1,16 @@
+<div class="pb-2 mt-4 mb-2 border-bottom">
+      <h2><%= t('messages.animals_page_title', name: @person.name) %></h2>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3><%= Animal.model_name.human(count: 2) %>: <%= @person.animals.count %> <a href="<%= new_person_animal_path(@person) %>" class='btn btn-secondary float-right'><%= t('actions.animal.new') %></a></h3>
+      </div>
+      <div class="card-body">
+     
+      </div>
+    </div>
+  </div>
+</div>

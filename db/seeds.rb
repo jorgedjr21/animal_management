@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts '---INSERTING ANIMAL KINDS---'
+AnimalKind.create([
+  { name: 'Gato' },
+  { name: 'Cachorro' },
+  { name: 'Andorinha' },
+  { name: 'Cavalo' },
+  { name: 'Papagaio' },
+  { name: 'Lhama' },
+  { name: 'Iguana' },
+  { name: 'Ornitorrinco' }
+])
+puts '---FINISH INSERT ANIMAL KINDS---'
