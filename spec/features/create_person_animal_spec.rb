@@ -4,7 +4,7 @@ RSpec.feature "Create Person Animal Feature", type: :feature do
   let!(:person) { create(:person) }
   let!(:person_underage) { create(:person, :underage) }
   let!(:person_with_a) { create(:person, name: 'Alexander, the Great') }
-  let!(:animal_kind) { create(:animal_kind, name: 'Cachorro', ) }
+  let!(:animal_kind) { create(:animal_kind, name: 'Cachorro') }
   let!(:cat_kind) { create(:animal_kind, name: 'Gato') }
   let!(:andorinha_kind) { create(:animal_kind, name: 'Andorinha') }
 
