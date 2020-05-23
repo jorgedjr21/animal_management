@@ -6,7 +6,6 @@ RSpec.describe Person, type: :model do
 
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_numericality_of(:document).only_integer }
-    it { is_expected.to validate_uniqueness_of(:document) }
     it { is_expected.to validate_presence_of(:birthdate) }
   end
 end
