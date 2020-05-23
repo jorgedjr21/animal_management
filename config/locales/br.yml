@@ -47,6 +47,7 @@ br:
       animal:
         name: 'Nome'
         monthly_cost: 'Custo mensal'
+        animal_kind_id: 'Tipo de animal'
     errors:
       models:
         person:
@@ -57,6 +58,15 @@ br:
               blank: 'não pode ficar em branco'
               not_a_number: 'deve conter somente numeros'
             birthdate:
+              blank: 'não pode ficar em branco'
+        animal:
+          attributes:
+            name:
+              blank: 'não pode ficar em branco'
+            monthly_cost:
+              blank: 'não pode ficar em branco'
+              not_a_number: 'deve conter um número no formato 0.00'
+            animal_kind_id:
               blank: 'não pode ficar em branco'
   date:
     order:
@@ -71,6 +81,7 @@ br:
       edit: 'Editar Pessoa'
     animal:
       new: 'Adicionar animal'
+      select_kind: 'Selecione o tipo do animal'
   messages:
     hello: 'Bem vindo ao Gerenciador de Animais'
     animals_page_title: 'Animais de %{name}'

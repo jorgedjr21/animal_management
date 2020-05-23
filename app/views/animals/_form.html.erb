@@ -1,7 +1,8 @@
  <%= simple_form_for @animal, url: person_animals_path(@person) do |f| %>
   <div class="card-body">
     <%= f.input :name %>
-    <%= f.input :monthly_cost, input_html: { step: 0.01, min: 0 }  %>
+    <%= f.input :monthly_cost, hint: 'formato: 0.00', input_html: { step: 0.01, min: 0 }  %>
+    <%= f.input :animal_kind_id, collection: @animal_kinds, prompt: t('actions.animal.select_kind')  %>
   </div>
   <div class="card-footer text-center">
     <%= link_to t('actions.back'), person_animals_path(@person), class: 'mr-2 btn btn-outline-info' %>
