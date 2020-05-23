@@ -30,7 +30,6 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 br:
-  and: 'e'
   activerecord:
     models:
       person:
@@ -57,6 +56,7 @@ br:
             document:
               blank: 'não pode ficar em branco'
               not_a_number: 'deve conter somente numeros'
+              taken: 'já cadastrado por outra pessoa'
             birthdate:
               blank: 'não pode ficar em branco'
         animal:
@@ -68,6 +68,7 @@ br:
               not_a_number: 'deve conter um número no formato 0.00'
             animal_kind_id:
               blank: 'não pode ficar em branco'
+              underage: ' %{kind} só pode ter donos acima de 18 anos'
   date:
     order:
       - :day

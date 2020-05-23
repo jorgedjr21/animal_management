@@ -61,6 +61,17 @@ RSpec.describe 'Animals Requests', type: :request do
           post "/people/#{person.id}/animals", params: valid_params
           expect(Animal.last.owner).to eq(person)
         end
+
+        context 'when person has less than 18 years' do
+          let!(:underage_person) { create(:person, birthdate: Date.today - 10.years) }
+          let(:andorinha) { create(:animal_kind, name: 'Andorinha') }
+  
+          it 'must not add the \'Andorinha\' animal' do
+            valid_params[:animal][:animal_kind_id] = andorinha.id
+
+            expect { post "/people/#{underage_person.id}/animals", params: valid_params }.not_to change(Animal, :count)
+          end
+        end
       end
 
       context 'with invalid params' do

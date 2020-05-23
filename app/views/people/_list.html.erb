@@ -20,7 +20,7 @@
         <%= link_to "<i class='fas fa-user-times text-danger'></i>".html_safe, person_path(person), method: :delete, data: { confirm: t('messages.delete.person'), toggle: 'tooltip', title: 'Excluir', placement: 'bottom' } %>
       </td>
       <td class='text-center'>
-        <%= link_to "<i class='fas fa-paw text-warning'></i>".html_safe, person_animals_path(person), id: 'new_animal', data: { placement: 'bottom', title: "Animais de #{person.name}", toggle: 'tooltip' } %>
+        <%= link_to "<i class='fas fa-paw text-warning'></i>".html_safe, person_animals_path(person), id: "new_animal_#{person.id}", data: { placement: 'bottom', title: "Animais de #{person.name}", toggle: 'tooltip' } %>
       </td>
     </tr>
     <% end %>
