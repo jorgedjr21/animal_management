@@ -5,7 +5,7 @@ RSpec.feature 'Update Person Info', type: :feature do
     it 'must redirect to people_path' do
       visit '/people/1/edit'
 
-      expect(page).to have_content('Não foi possivel encontrar a informação.')
+      expect(page).to have_content('Não foi possivel encontrar informações para prosseguir.')
       expect(page).to have_current_path(people_path)
     end
   end

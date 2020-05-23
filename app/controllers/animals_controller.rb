@@ -1,6 +1,15 @@
 class AnimalsController < ApplicationController
   before_action :set_person
+  
   def index
+  end
+
+  def new
+    @animal = @person.animals.build
+  end
+
+  def save
+
   end
 
   private

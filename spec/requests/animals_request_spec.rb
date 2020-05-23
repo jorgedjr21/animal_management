@@ -1,0 +1,40 @@
+require 'rails_helper'
+
+RSpec.describe 'Animals Requests', type: :request do
+  let!(:person) { create(:person) }
+  describe 'GET /people/:id/animals' do
+    context 'when person exists' do
+      it 'must have http status 200' do
+        get "/people/#{person.id}/animals"
+
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context 'when person doesn\'t exists' do
+      it 'must redirect to people_path' do
+        get '/people/9999/animals'
+
+        expect(response).to redirect_to(people_path)
+      end
+    end
+  end
+
+  describe 'GET /people/:id/animals' do
+    context 'when person exists' do
+      it 'must instanciate the new animal' do
+        get "/people/#{person.id}/animals/new"
+
+        expect(assigns[:animal].to_json).to eq(Animal.new(person_id: person.id).to_json)
+      end
+    end
+
+    context 'when person doesn\'t exists' do
+      it 'must redirect to people_path' do
+        get '/people/9999/animals/new'
+
+        expect(response).to redirect_to(people_path)
+      end
+    end
+  end
+end

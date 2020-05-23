@@ -44,6 +44,9 @@ br:
         name: 'Nome'
         document: 'Documento'
         birthdate: 'Data de nascimento'
+      animal:
+        name: 'Nome'
+        monthly_cost: 'Custo mensal'
     errors:
       models:
         person:
