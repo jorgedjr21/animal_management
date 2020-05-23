@@ -15,5 +15,11 @@ FactoryBot.define do
     trait :wrong_birthdate do
       birthdate { '' }
     end
+
+    trait :with_animal do
+      after(:create) do |person|
+        create(:animal, person_id: person.id)
+      end
+    end
   end
 end
